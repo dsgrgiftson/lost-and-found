@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "13541a75-02f5-430b-901b-fab59d99c7d3",
+		"name": "lost-and-found",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6235675"
+	},
+	"item": [
+		{
+			"name": "upload-and-store-lost-data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "d1d6686d-257f-4683-aa9b-c9d45df0a669",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "lostFile",
+							"type": "file",
+							"src": "/Users/giftsondavid/git/Interview/lost-and-found/test-data/LostItems.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/lost-and-found/upload-and-store-lost-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lost-and-found",
+						"upload-and-store-lost-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read-lost-data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/lost-and-found/read-lost-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lost-and-found",
+						"read-lost-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "claim-lost-item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"claimantUserId\": \"1001\",\n    \"itemsAndQuantity\": [\n        {\n            \"lostItemId\": \"2\",\n            \"claimedQuantity\": \"1\"\n        },\n        {\n            \"lostItemId\": \"4\",\n            \"claimedQuantity\": \"2\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/lost-and-found/claim-lost-item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lost-and-found",
+						"claim-lost-item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve-claimed-items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/lost-and-found/retrieve-claimed-items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"lost-and-found",
+						"retrieve-claimed-items"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
