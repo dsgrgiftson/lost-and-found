@@ -44,7 +44,7 @@ public class LostItem {
      * The quantity of the lost item.
      */
     @Column(name = "QUANTITY")
-    private Integer quantity;
+    private int quantity;
 
     /**
      * The place where the lost item was found.

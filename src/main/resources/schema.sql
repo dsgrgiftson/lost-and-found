@@ -1,6 +1,16 @@
 set
 mode Oracle;
 
+-- Roles table
+create table ROLES
+(
+    ID          int primary key,
+    NAME        varchar(255) unique not null,
+    DESCRIPTION varchar(255)        not null,
+    CREATED_AT  timestamp           not null,
+    UPDATED_AT  timestamp
+);
+
 -- Lost items table
 create sequence LOST_ITEM_ID_SEQUENCE start with 1 increment by 1;
 
@@ -24,7 +34,7 @@ create table USERS
     LASTNAME  varchar(255),
     EMAIL     varchar(255),
     PASSWORD  varchar(255),
-    IS_ADMIN  boolean
+    ROLE_ID   int references ROLES (ID)
 );
 
 -- Lost item claims table
@@ -35,5 +45,6 @@ create table LOST_ITEM_CLAIM
     CLAIM_ID         int primary key,
     LOST_ITEM_ID     int references LOST_ITEM (LOST_ITEM_ID),
     CLAIMED_QUANTITY int,
-    USER_ID          int references USERS (USER_ID)
+    USER_ID          int references USERS (USER_ID),
+    CLAIM_TIMESTAMP  timestamp
 );
